@@ -4,16 +4,17 @@ import java.util.*;
  * Problem1
  */
 public class Problem1 {
-    public static void main(String[] args) {
+    public static String main(String[] args) {
         // --------- variable declaration ----------
         String Z27 = "abcdefghijklmnopqrstuvwxyz ";
         Scanner scan = new Scanner(System.in);
         int[][] blocks_int = new int[5][5];
         String out_output = "";
 
-        System.out.println();
-        System.out.print("Enter an english hash function: ");
-        String english_hash = scan.nextLine();
+        // System.out.println();
+        // System.out.print("Enter an english hash function: ");
+        // String english_hash = scan.nextLine();
+        String english_hash = args[0];
 
         //paddings
         while (english_hash.length() % 25 != 0) {
@@ -47,7 +48,7 @@ public class Problem1 {
             }
         }
 
-        System.out.println("Result: " + out_output);
+        return out_output;
     }
 
     public static int[] sumCol(int[][] block_in, int[] out_in) {
