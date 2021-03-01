@@ -11,9 +11,6 @@ public class Problem1 {
         int[][] blocks_int = new int[5][5];
         String out_output = "";
 
-        // System.out.println();
-        // System.out.print("Enter an english hash function: ");
-        // String english_hash = scan.nextLine();
         String english_hash = args[0];
 
         //paddings
@@ -64,12 +61,6 @@ public class Problem1 {
             out_in[i] += col_sum[i];
             out_in[i] %= 27;
         }
-
-        // for (int i : out_in) {
-        // System.out.print(i + " ");
-        // }
-
-        // System.out.println();
 
         return out_in;
     }
@@ -122,22 +113,6 @@ public class Problem1 {
         }
         // ------ end of initializing blocks_int ----------
 
-        // ----------- sum of columns ----------
-        // col_sum = sumCol(blocks_int);
-        // -------- end of sum of columns ----------
-
-        // ----------- debugging
-        // for (int[] is : blocks_int) {
-        // for (int u : is) {
-        // System.out.print(u + " ");
-        // }
-        // System.out.println();
-        // }
-
-        // for (int i : col_sum) {
-        // System.out.println(i);
-        // }
-
         return blocks_int;
     }
 
@@ -145,6 +120,7 @@ public class Problem1 {
 
         int[][] arrayShifted = block_in;
 
+        // ---------- shift ith row left i times -----------
         for (int i = 0; i < block_in.length; i++) {
             for (int j = 0; j < i + 1; j++) {
                 int k, head;
@@ -158,13 +134,7 @@ public class Problem1 {
                 arrayShifted[i][k] = head;
             }
         }
-
-        // for (int[] is : arrayShifted) {
-        // for (int u : is) {
-        // System.out.print(u + " ");
-        // }
-        // System.out.println();
-        // }
+        // ------- end of shift ith row left i times --------
 
         return arrayShifted;
     }
@@ -172,15 +142,12 @@ public class Problem1 {
     public static int[][] hash_round3(int[][] block_in) {
         int[][] arrayShifted = block_in;
 
+        // ---------- shift ith column down i times -----------
         for (int j = 0; j < block_in.length; j++) {
             for (int i = 0; i < j + 1; i++) {
                 int k, head;
 
                 head = arrayShifted[4][j];
-
-                // for (k = 0; k < ((arrayShifted[0].length) - 1); k++) {
-                // arrayShifted[k][j] = arrayShifted[k+1][j];
-                // }
 
                 for (k = 4; k > 0; k--) {
                     arrayShifted[k][j] = arrayShifted[k - 1][j];
@@ -189,13 +156,7 @@ public class Problem1 {
                 arrayShifted[k][j] = head;
             }
         }
-
-        // for (int[] is : arrayShifted) {
-        // for (int u : is) {
-        // System.out.print(u + " ");
-        // }
-        // System.out.println();
-        // }
+        // ------- end of shift ith column down i times --------
 
         return arrayShifted;
     }
