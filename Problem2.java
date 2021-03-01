@@ -15,7 +15,7 @@ public class Problem2 {
 
         result = Problem1.main(param);
 
-        System.out.println(result);
+        System.out.println("\nResult: " + result);
 
     }
 

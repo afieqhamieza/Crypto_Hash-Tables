@@ -1,31 +1,31 @@
 import java.util.*;
 
-/**
- * Problem1
- */
-public class Problem1 {
-    public static String main(String[] args) {
+public class test1 {
+    public static void main(String[] args) {
         // --------- variable declaration ----------
         String Z27 = "abcdefghijklmnopqrstuvwxyz ";
         Scanner scan = new Scanner(System.in);
         int[][] blocks_int = new int[5][5];
         String out_output = "";
 
-        // System.out.println();
-        // System.out.print("Enter an english hash function: ");
-        // String english_hash = scan.nextLine();
-        String english_hash = args[0];
+        System.out.println();
+        System.out.print("Enter an english hash function: ");
+        String english_hash = scan.nextLine();
+        // String english_hash = args[0];
 
-        //paddings
+        // paddings
         while (english_hash.length() % 25 != 0) {
             english_hash += "x";
         }
 
         // split to blocks
         String[] blocks = english_hash.split("(?<=\\G.{25})");
-        
+
         int OUT[] = new int[] { 0, 0, 0, 0, 0 };
 
+        // for (int i = 0; i < blocks.length; i++) {
+        // OUT[i] = new int[] { 0, 0, 0, 0, 0 };
+        // }
         // ------ end of variable declaration -------
 
         // ---------- round 1 hashing each block ----------
@@ -39,11 +39,15 @@ public class Problem1 {
         }
         // ------- end of round 1 hashing each block -------
 
+        // for (int[] is : OUT) {
         for (int u : OUT) {
             out_output += Z27.charAt(u);
         }
-        
-        return out_output;
+        // }
+
+        System.out.println(out_output);
+        // return out_output;
+        // the birthday attack can be performed for any hash functions including sha three
     }
 
     public static int[] sumCol(int[][] block_in, int[] out_in) {
